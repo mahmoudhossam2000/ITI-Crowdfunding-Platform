@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campaign Management - Admin Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .status-badge {
+        font-size: 0.8em;
+        padding: 0.5em 0.75em;
+        border-radius: 20px;
+      }
+      .status-pending {
+        background-color: #f0ad4e;
+        color: white;
+      }
+      .status-approved {
+        background-color: #5cb85c;
+        color: white;
+      }
+      .status-rejected {
+        background-color: #d9534f;
+        color: white;
+      }
+      .campaign-image {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      .action-btn {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div id="header"></div>
+
+    <div class="container mt-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Campaign Management</h2>
+        <div class="d-flex">
+          <div class="btn-group me-2">
+            <button class="btn btn-outline-primary active" id="all-campaigns-btn">All Campaigns</button>
+            <button class="btn btn-outline-warning" id="pending-campaigns-btn">Pending Approval</button>
+          </div>
+          <select class="form-select" id="status-filter" style="width: auto">
+            <option value="all">All Statuses</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Title</th>
+                  <th>Creator</th>
+                  <th>Goal</th>
+                  <th>Created</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="campaigns-list">
+                <!-- Campaigns will be loaded here -->
+                <tr>
+                  <td colspan="7" class="text-center py-4">
+                    <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaign Details Modal -->
+    <div class="modal fade" id="campaignModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="campaignModalLabel">Campaign Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="campaign-details">
+            <!-- Campaign details will be loaded here -->
+          </div>
+          <div class="modal-footer" id="campaign-actions">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" id="approve-btn">Approve</button>
+            <button type="button" class="btn btn-danger" id="reject-btn">Reject</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Config -->
+    <script src="../js/config.js"></script>
+    <!-- Components -->
+    <script type="module">
+      import { loadHeader } from '../components/header.js';
+      document.getElementById('header').innerHTML = loadHeader();
+    </script>
+    <!-- Admin JS -->
+    <script type="module" src="./js/admin.js"></script>
+  </body>
+</html>

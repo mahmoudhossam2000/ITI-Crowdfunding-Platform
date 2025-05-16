@@ -1,0 +1,134 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin User",
+      "email": "admin@crowdfunding.com",
+      "password": "cGFzc3dvcmQxMjM=",
+      "role": "admin",
+      "isActive": true,
+      "status": "approved",
+      "createdAt": "2025-05-13T11:20:00.000Z"
+    },
+    {
+      "id": "6b3c",
+      "name": "Test Backer",
+      "email": "backer@test.com",
+      "password": "cGFzc3dvcmQxMjM=",
+      "role": "backer",
+      "isActive": true,
+      "status": "approved",
+      "createdAt": "2025-05-13T11:24:35.520Z"
+    },
+    {
+      "id": "49fc",
+      "name": "Test Campaigner",
+      "email": "campaigner@test.com",
+      "password": "cGFzc3dvcmQxMjM=",
+      "role": "campaigner",
+      "isActive": true,
+      "status": "approved",
+      "createdAt": "2025-05-13T11:34:22.884Z"
+    },
+    {
+      "id": "667e",
+      "name": "mohamedhamdy`",
+      "email": "hamdy@test.com",
+      "password": "aGFtZHkxMjM=",
+      "role": "campaigner",
+      "isActive": true,
+      "status": "approved",
+      "createdAt": "2025-05-16T15:20:00.568Z"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "2",
+      "title": "Fund a Mobile Library for Rural Kids",
+      "description": "Help bring books to children in remote areas with a mobile library van. This project will provide educational resources, inspire learning, and foster a love for reading among underserved kids. Your support will fund the van, books, and staff training.",
+      "goal": 12000,
+      "currentAmount": 4800,
+      "deadline": "2025-06-30",
+      "isApproved": true,
+      "creatorId": 2,
+      "image": "assets/images/90112949_1743953827906232_r.webp"
+    },
+    {
+      "id": "2",
+      "title": "Community Health Initiative",
+      "description": "Supporting local healthcare facilities with essential medical equipment.",
+      "goal": 75000,
+      "currentAmount": 45000,
+      "deadline": "2024-11-30",
+      "isApproved": true,
+      "creatorId": 1,
+      "image": "assets/images/83643253_1729646633532992_r.webp"
+    },
+    {
+      "id": "3",
+      "title": "Medical Aid for Families in Need",
+      "description": "Many families struggle to afford critical medical treatments. This campaign will fund surgeries, medications, and therapy for those in need. Your contribution can save lives and provide hope to those facing health challenges.",
+      "goal": 20000,
+      "currentAmount": 6000,
+      "deadline": "2025-08-31",
+      "isApproved": true,
+      "creatorId": 4,
+      "image": "assets/images/90535223_174594004592913_r.webp"
+    },
+    {
+      "id": "4",
+      "title": "Green City Project",
+      "description": "Help us plant more trees and create sustainable green spaces in our city.",
+      "goal": 30000,
+      "currentAmount": 15000,
+      "deadline": "2024-10-31",
+      "isApproved": true,
+      "creatorId": 1,
+      "image": "assets/images/74199625_1704822987909919_r.webp"
+    },
+    {
+      "id": "5",
+      "title": "Launch a Tech Hub for Young Innovators",
+      "description": "Support a tech hub where young entrepreneurs can access coding workshops, 3D printers, and mentorship. This space will empower the next generation to create innovative solutions. Fund equipment and programs to spark creativity!",
+      "goal": 18000,
+      "currentAmount": 9000,
+      "deadline": "2025-10-15",
+      "isApproved": true,
+      "creatorId": 2,
+      "image": "assets/images/90522259_1745443577773977_r.webp"
+    },
+    {
+      "id": "1",
+      "title": "Help Save Local Animal Shelter",
+      "description": "Our local animal shelter needs support to continue providing care for abandoned pets...",
+      "goal": 10000,
+      "currentAmount": 5000,
+      "deadline": "2024-12-31",
+      "isApproved": true,
+      "creatorId": 1,
+      "image": "assets/images/90233535_1744365871181228_r.webp"
+    },
+    {
+      "id": "c770",
+      "creatorId": "49fc",
+      "title": "children",
+      "description": "children",
+      "goal": 19000,
+      "deadline": "2025-05-30",
+      "image": "https://www.bing.com/th/id/OIP.B39-1EvwOFXOffOfIKZT0AHaEK?w=242&h=211&c=8&rs=1&qlt=90&r=0&o=6&dpr=1.3&pid=3.1&rm=2",
+      "rewards": [
+        {
+          "title": "15",
+          "amount": 19,
+          "description": "children"
+        }
+      ],
+      "createdAt": "2025-05-16T16:33:20.540Z",
+      "currentAmount": 0,
+      "isApproved": true,
+      "status": "active"
+    }
+  ],
+  "pledges": [],
+  "updates": []
+}

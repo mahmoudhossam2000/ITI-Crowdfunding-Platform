@@ -39,6 +39,26 @@
       "isActive": true,
       "status": "approved",
       "createdAt": "2025-05-16T15:20:00.568Z"
+    },
+    {
+      "id": "0cfb",
+      "name": "mohammad",
+      "email": "mohammad@user.com",
+      "password": "MTIzNDU2Nzg5",
+      "role": "backer",
+      "isActive": true,
+      "status": "approved",
+      "createdAt": "2025-05-16T19:09:56.974Z"
+    },
+    {
+      "id": "d139",
+      "name": "mohammad",
+      "email": "mohammad@camp.com",
+      "password": "MTIzNDU2Nzg5",
+      "role": "campaigner",
+      "isActive": true,
+      "status": "approved",
+      "createdAt": "2025-05-16T19:13:34.250Z"
     }
   ],
   "campaigns": [
@@ -129,6 +149,63 @@
       "status": "active"
     }
   ],
-  "pledges": [],
+  "pledges": [
+  {
+    "id": "p1",
+    "campaignId": "1",
+    "userId": "6b3c",
+    "amount": 50,
+    "rewardId": null,
+    "timestamp": "2025-05-17T10:30:00Z"
+  },
+  {
+    "id": "p2",
+    "campaignId": "1",
+    "userId": "0cfb",
+    "amount": 100,
+    "rewardId": null,
+    "timestamp": "2025-05-17T12:45:00Z"
+  },
+  {
+    "id": "p3",
+    "campaignId": "2",
+    "userId": "d139",
+    "amount": 250,
+    "rewardId": null,
+    "timestamp": "2025-05-17T09:15:00Z"
+  },
+  {
+    "id": "p4",
+    "campaignId": "3",
+    "userId": "667e",
+    "amount": 75,
+    "rewardId": null,
+    "timestamp": "2025-05-17T14:20:00Z"
+  },
+  {
+    "id": "p5",
+    "campaignId": "4",
+    "userId": "0cfb",
+    "amount": 100,
+    "rewardId": null,
+    "timestamp": "2025-05-17T16:05:00Z"
+  },
+  {
+    "id": "p6",
+    "campaignId": "5",
+    "userId": "6b3c",
+    "amount": 50,
+    "rewardId": null,
+    "timestamp": "2025-05-17T11:40:00Z"
+  },
+  {
+    "id": "p7",
+    "campaignId": "c770",
+    "userId": "0cfb",
+    "amount": 20,
+    "rewardId": null,
+    "timestamp": "2025-05-17T18:00:00Z"
+  }
+],
   "updates": []
 }

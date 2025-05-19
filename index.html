@@ -4,17 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CrowdFund - Fundraising Platform</title>
-    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css" />
     <style>
       .hero {
@@ -64,10 +61,7 @@
     </style>
   </head>
   <body>
-    <!-- Header (using shared component) -->
     <div id="header"></div>
-
-    <!-- Hero Section -->
     <section class="hero">
       <div class="container text-center">
         <h1 class="display-4 fw-bold mb-4">Make a Difference Today</h1>
@@ -80,7 +74,6 @@
       </div>
     </section>
 
-    <!-- Categories Section -->
     <section class="py-5" id="categories">
       <div class="container">
         <h2 class="text-center mb-5">Popular Categories</h2>
@@ -120,17 +113,13 @@
       </div>
     </section>
 
-    <!-- Featured Campaigns -->
     <section class="py-5 bg-light" id="discover">
       <div class="container">
         <h2 class="text-center mb-5">Featured Campaigns</h2>
-        <div class="row g-4" id="featured-campaigns">
-          <!-- Campaign cards will be loaded here -->
-        </div>
+        <div class="row g-4" id="featured-campaigns"></div>
       </div>
     </section>
 
-    <!-- How it Works -->
     <section class="py-5" id="howitworks">
       <div class="container">
         <h2 class="text-center mb-5">How It Works</h2>
@@ -172,7 +161,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="row g-4">
@@ -251,27 +239,21 @@
       </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Config -->
     <script src="js/config.js"></script>
-    <!-- Header Component -->
     <script type="module">
-      import { loadHeader } from './components/header.js';
-      document.getElementById('header').innerHTML = loadHeader();
+      import { loadHeader } from "./components/header.js";
+      document.getElementById("header").innerHTML = loadHeader();
     </script>
-    
-    <!-- Global logout function -->
+
     <script>
-      // Make logout function available globally (for header component)
       if (!window.logout) {
-        window.logout = function() {
-          localStorage.removeItem('user');
-          window.location.href = 'login.html';
+        window.logout = function () {
+          localStorage.removeItem("user");
+          window.location.href = "login.html";
         };
       }
     </script>
-    <!-- Home JS -->
     <script src="js/home.js"></script>
   </body>
 </html>

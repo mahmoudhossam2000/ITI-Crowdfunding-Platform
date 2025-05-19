@@ -1,6 +1,5 @@
-// Function to load and insert footer
 export function loadFooter() {
-    return `
+  return `
     <footer>
         <div class="container">
             <div class="row g-4">
@@ -67,4 +66,4 @@ export function loadFooter() {
         </div>
     </footer>
     `;
-} 
+}

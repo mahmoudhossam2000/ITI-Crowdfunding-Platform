@@ -49,8 +49,15 @@
         <h2>Campaign Management</h2>
         <div class="d-flex">
           <div class="btn-group me-2">
-            <button class="btn btn-outline-primary active" id="all-campaigns-btn">All Campaigns</button>
-            <button class="btn btn-outline-warning" id="pending-campaigns-btn">Pending Approval</button>
+            <button
+              class="btn btn-outline-primary active"
+              id="all-campaigns-btn"
+            >
+              All Campaigns
+            </button>
+            <button class="btn btn-outline-warning" id="pending-campaigns-btn">
+              Pending Approval
+            </button>
           </div>
           <select class="form-select" id="status-filter" style="width: auto">
             <option value="all">All Statuses</option>
@@ -77,7 +84,6 @@
                 </tr>
               </thead>
               <tbody id="campaigns-list">
-                <!-- Campaigns will be loaded here -->
                 <tr>
                   <td colspan="7" class="text-center py-4">
                     <div class="spinner-border text-primary" role="status">
@@ -92,36 +98,46 @@
       </div>
     </div>
 
-    <!-- Campaign Details Modal -->
     <div class="modal fade" id="campaignModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="campaignModalLabel">Campaign Details</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="campaignModalLabel">
+              Campaign Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <div class="modal-body" id="campaign-details">
-            <!-- Campaign details will be loaded here -->
-          </div>
+          <div class="modal-body" id="campaign-details"></div>
           <div class="modal-footer" id="campaign-actions">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success" id="approve-btn">Approve</button>
-            <button type="button" class="btn btn-danger" id="reject-btn">Reject</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success" id="approve-btn">
+              Approve
+            </button>
+            <button type="button" class="btn btn-danger" id="reject-btn">
+              Reject
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Config -->
     <script src="../js/config.js"></script>
-    <!-- Components -->
     <script type="module">
-      import { loadHeader } from '../components/header.js';
-      document.getElementById('header').innerHTML = loadHeader();
+      import { loadHeader } from "../components/header.js";
+      document.getElementById("header").innerHTML = loadHeader();
     </script>
-    <!-- Admin JS -->
     <script type="module" src="./js/admin.js"></script>
   </body>
 </html>

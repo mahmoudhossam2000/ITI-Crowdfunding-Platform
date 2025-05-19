@@ -22,7 +22,7 @@
     },
     {
       "id": "49fc",
-      "name": "Test Campaigner",
+      "name": "Campaigner1",
       "email": "campaigner@test.com",
       "password": "cGFzc3dvcmQxMjM=",
       "role": "campaigner",
@@ -147,65 +147,86 @@
       "currentAmount": 0,
       "isApproved": true,
       "status": "active"
+    },
+    {
+      "id": "649a",
+      "creatorId": "49fc",
+      "title": "test2",
+      "description": "test2",
+      "goal": 15000,
+      "deadline": "2025-05-29",
+      "category": "health",
+      "image": "https://th.bing.com/th/id/R.0b42b41799cfcc3da747f6468e0caca0?rik=qs2C9jsTxCK%2fKQ&riu=http%3a%2f%2fwww.parsicuisine.com%2fwp-content%2fuploads%2f2015%2f01%2fhealth.jpg&ehk=SBoj%2bcoeoT9R8QeI1qWmSCFgiA6t8tFXQ89xF0Xrdbo%3d&risl=&pid=ImgRaw&r=0",
+      "rewards": [
+        {
+          "title": "5000",
+          "amount": 5,
+          "description": "test2"
+        }
+      ],
+      "createdAt": "2025-05-19T08:26:09.548Z",
+      "currentAmount": 0,
+      "isApproved": true,
+      "status": "active"
     }
   ],
   "pledges": [
-  {
-    "id": "p1",
-    "campaignId": "1",
-    "userId": "6b3c",
-    "amount": 50,
-    "rewardId": null,
-    "timestamp": "2025-05-17T10:30:00Z"
-  },
-  {
-    "id": "p2",
-    "campaignId": "1",
-    "userId": "0cfb",
-    "amount": 100,
-    "rewardId": null,
-    "timestamp": "2025-05-17T12:45:00Z"
-  },
-  {
-    "id": "p3",
-    "campaignId": "2",
-    "userId": "d139",
-    "amount": 250,
-    "rewardId": null,
-    "timestamp": "2025-05-17T09:15:00Z"
-  },
-  {
-    "id": "p4",
-    "campaignId": "3",
-    "userId": "667e",
-    "amount": 75,
-    "rewardId": null,
-    "timestamp": "2025-05-17T14:20:00Z"
-  },
-  {
-    "id": "p5",
-    "campaignId": "4",
-    "userId": "0cfb",
-    "amount": 100,
-    "rewardId": null,
-    "timestamp": "2025-05-17T16:05:00Z"
-  },
-  {
-    "id": "p6",
-    "campaignId": "5",
-    "userId": "6b3c",
-    "amount": 50,
-    "rewardId": null,
-    "timestamp": "2025-05-17T11:40:00Z"
-  },
-  {
-    "id": "p7",
-    "campaignId": "c770",
-    "userId": "0cfb",
-    "amount": 20,
-    "rewardId": null,
-    "timestamp": "2025-05-17T18:00:00Z"
-  }
-],
+    {
+      "id": "p1",
+      "campaignId": "1",
+      "userId": "6b3c",
+      "amount": 50,
+      "rewardId": null,
+      "timestamp": "2025-05-17T10:30:00Z"
+    },
+    {
+      "id": "p2",
+      "campaignId": "1",
+      "userId": "0cfb",
+      "amount": 100,
+      "rewardId": null,
+      "timestamp": "2025-05-17T12:45:00Z"
+    },
+    {
+      "id": "p3",
+      "campaignId": "2",
+      "userId": "d139",
+      "amount": 250,
+      "rewardId": null,
+      "timestamp": "2025-05-17T09:15:00Z"
+    },
+    {
+      "id": "p4",
+      "campaignId": "3",
+      "userId": "667e",
+      "amount": 75,
+      "rewardId": null,
+      "timestamp": "2025-05-17T14:20:00Z"
+    },
+    {
+      "id": "p5",
+      "campaignId": "4",
+      "userId": "0cfb",
+      "amount": 100,
+      "rewardId": null,
+      "timestamp": "2025-05-17T16:05:00Z"
+    },
+    {
+      "id": "p6",
+      "campaignId": "5",
+      "userId": "6b3c",
+      "amount": 50,
+      "rewardId": null,
+      "timestamp": "2025-05-17T11:40:00Z"
+    },
+    {
+      "id": "p7",
+      "campaignId": "c770",
+      "userId": "0cfb",
+      "amount": 20,
+      "rewardId": null,
+      "timestamp": "2025-05-17T18:00:00Z"
+    }
+  ],
   "updates": []
 }

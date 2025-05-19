@@ -55,13 +55,17 @@ export function loadHeader() {
                         ` : ''
                     ) : ''}
                 </ul>
-                <form class="d-flex me-3 search-form">
-                    <div class="input-group">
+                <div class="d-flex me-5" role="search">
+                    <input id="search-input" class="form-control rounded-end-0" type="search" placeholder="Search" aria-label="Search"/>
+                    <button class="btn btn-outline-success rounded-start-0" id="search-btn" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                </div>
+                <form class="dash-logout-btns d-flex me-3 ">
+                    <!-- <div class="input-group">
                         <input class="form-control" type="search" placeholder="Search campaigns..." aria-label="Search">
                         <button class="btn btn-outline-primary" type="submit">
                             <i class="fas fa-search"></i>
                         </button>
-                    </div>
+                    </div> -->
                 </form>
                 <div class="d-flex gap-2">
                     ${isLoggedIn ? `

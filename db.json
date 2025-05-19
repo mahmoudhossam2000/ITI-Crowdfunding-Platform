@@ -168,6 +168,27 @@
       "currentAmount": 0,
       "isApproved": true,
       "status": "active"
+    },
+    {
+      "id": "ae8a",
+      "creatorId": "49fc",
+      "title": "developers need help",
+      "description": "Help developers make a decent living after being replaced by AI.",
+      "goal": 100000,
+      "deadline": "2025-07-08",
+      "category": "community",
+      "image": "https://www.sourcelabs.nl/wp-content/uploads/2023/04/3fe6d35d80239450d9e27c27dd0ff014-300x227.jpg",
+      "rewards": [
+        {
+          "title": "10",
+          "amount": 10,
+          "description": "10"
+        }
+      ],
+      "createdAt": "2025-05-19T17:03:26.616Z",
+      "currentAmount": 0,
+      "isApproved": false,
+      "status": "pending"
     }
   ],
   "pledges": [

@@ -1,78 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CrowdFund - Fundraising Platform</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-    <style>
-      .hero {
-        background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-        color: white;
-        padding: 6rem 0;
-      }
-      .nav-link {
-        color: #4b5563;
-        font-weight: 500;
-      }
-      .nav-link:hover {
-        color: #4f46e5;
-      }
-      .btn-primary {
-        background-color: #4f46e5;
-        border-color: #4f46e5;
-      }
-      .btn-primary:hover {
-        background-color: #4338ca;
-        border-color: #4338ca;
-      }
-      .btn-outline-primary {
-        color: #4f46e5;
-        border-color: #4f46e5;
-      }
-      .btn-outline-primary:hover {
-        background-color: #4f46e5;
-        border-color: #4f46e5;
-      }
-      .card {
-        transition: transform 0.2s;
-        border: none;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-      .card:hover {
-        transform: translateY(-5px);
-      }
-      .category-icon {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #4f46e5;
-      }
-      .progress {
-        height: 0.5rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="header"></div>
-    <section class="hero">
-      <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">Make a Difference Today</h1>
-        <p class="lead mb-5">
-          Join thousands of people who are changing lives through crowdfunding
-        </p>
-        <a href="register.html" class="btn btn-light btn-lg px-5"
-          >Start Your Campaign</a
-        >
-      </div>
-    </section>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrowdFund - Fundraising Platform</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .hero {
+      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+      color: white;
+      padding: 6rem 0;
+    }
+
+    .nav-link {
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .nav-link:hover {
+      color: #4f46e5;
+    }
+
+    .btn-primary {
+      background-color: #4f46e5;
+      border-color: #4f46e5;
+    }
+
+    .btn-primary:hover {
+      background-color: #4338ca;
+      border-color: #4338ca;
+    }
+
+    .btn-outline-primary {
+      color: #4f46e5;
+      border-color: #4f46e5;
+    }
+
+    .btn-outline-primary:hover {
+      background-color: #4f46e5;
+      border-color: #4f46e5;
+    }
+
+    .card {
+      transition: transform 0.2s;
+      border: none;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #4f46e5;
+    }
+
+    .progress {
+      height: 0.5rem;
+    }
+
+    /* Fullscreen modal styles */
+    .modal-fullscreen {
+      width: 100vw;
+      max-width: none;
+      height: 90vh;
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .modal-fullscreen .modal-content {
+      height: 100%;
+      border: none;
+      overflow-y: auto;
+    }
+
+    .search-result-card img {
+      object-fit: cover;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header (using shared component) -->
+  <div id="header"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold mb-4">Make a Difference Today</h1>
+      <p class="lead mb-5">
+        Join thousands of people who are changing lives through crowdfunding
+      </p>
+      <a href="register.html" class="btn btn-light btn-lg px-5">Start Your Campaign</a>
+    </div>
+  </section>
 
     <section class="py-5" id="categories">
       <div class="container">
@@ -120,46 +151,90 @@
       </div>
     </section>
 
-    <section class="py-5" id="howitworks">
-      <div class="container">
-        <h2 class="text-center mb-5">How It Works</h2>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="text-center">
-              <div class="category-icon">
-                <i class="fas fa-edit"></i>
-              </div>
-              <h5>Create Your Campaign</h5>
-              <p class="text-muted">
-                Set up your fundraiser in minutes with our easy-to-use tools
-              </p>
+  <!-- How it Works -->
+  <section class="py-5" id="howitworks">
+    <div class="container">
+      <h2 class="text-center mb-5">How It Works</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="text-center">
+            <div class="category-icon">
+              <i class="fas fa-edit"></i>
             </div>
+            <h5>Create Your Campaign</h5>
+            <p class="text-muted">
+              Set up your fundraiser in minutes with our easy-to-use tools
+            </p>
           </div>
-          <div class="col-md-4">
-            <div class="text-center">
-              <div class="category-icon">
-                <i class="fas fa-share-alt"></i>
-              </div>
-              <h5>Share Your Story</h5>
-              <p class="text-muted">
-                Share your campaign with friends, family, and the world
-              </p>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center">
+            <div class="category-icon">
+              <i class="fas fa-share-alt"></i>
             </div>
+            <h5>Share Your Story</h5>
+            <p class="text-muted">
+              Share your campaign with friends, family, and the world
+            </p>
           </div>
-          <div class="col-md-4">
-            <div class="text-center">
-              <div class="category-icon">
-                <i class="fas fa-gift"></i>
-              </div>
-              <h5>Receive Donations</h5>
-              <p class="text-muted">
-                Collect donations and track your progress in real-time
-              </p>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center">
+            <div class="category-icon">
+              <i class="fas fa-gift"></i>
             </div>
+            <h5>Receive Donations</h5>
+            <p class="text-muted">
+              Collect donations and track your progress in real-time
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- Fullscreen Modal -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="searchModalLabel">Search Campaigns</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body px-4 pb-5">
+          <!-- Search Input -->
+          <!-- <div class="mb-4">
+            <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="Search campaigns..."
+              autofocus>
+          </div> -->
+
+          <!-- Empty Query Message -->
+          <div id="empty-search-message" class="alert alert-warning d-none mt-3" role="alert">
+            Please enter a search term.
+          </div>
+
+          <!-- Loader -->
+          <div id="search-loader" class="d-none text-center my-4">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Searching campaigns...</p>
+          </div>
+          
+          <!-- Results Grid -->
+          <div id="results" class="row g-4">
+            <!-- Campaign cards will appear here -->
+          </div>
+
+          <!-- No Results Message -->
+          <div id="noResults" class="alert alert-info d-none mt-4" role="alert">
+            No campaigns found matching your search.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
     <footer>
       <div class="container">

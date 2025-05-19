@@ -26,56 +26,45 @@
         >
       </div>
 
-      <div class="row mb-4">
-        <div class="col-md-6">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Search campaigns..."
-          />
-        </div>
-        <div class="col-md-4">
-          <select class="form-select">
-            <option>All Categories</option>
-            <option>Technology</option>
-            <option>Art</option>
-            <option>Music</option>
-            <option>Film</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <button class="btn btn-primary w-100">Filter</button>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-md-4 campaign-card">
-          <div class="card h-100 shadow-sm">
-            <img
-              src="https://via.placeholder.com/400x200 "
-              alt="Campaign Title"
-              class="card-img-top"
-            />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Smart Watch Project</h5>
-              <p class="card-text text-truncate">
-                A wearable device that tracks health metrics and connects to
-                your smartphone.
-              </p>
-              <div class="mt-auto">
-                <p><strong>Goal:</strong> $5000</p>
-                <p><strong>Deadline:</strong> 2024-12-31</p>
-                <button
-                  class="btn btn-outline-primary w-100"
-                  data-bs-toggle="modal"
-                  data-bs-target="#pledgeModal"
-                >
-                  Pledge Now
-                </button>
-              </div>
+        <!-- Search & Filter -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Search campaigns..." />
             </div>
-          </div>
+            <div class="col-md-4">
+                <select id="categoryFilter" class="form-select">
+                    <option>All Categories</option>
+                    <!-- <option>Technology</option>
+                    <option>Art</option>
+                    <option>Music</option>
+                    <option>Film</option> -->
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100">Filter</button>
+            </div>
         </div>
+
+        <!-- Campaign Cards -->
+        <div id="campaignList" class="row g-4">
+
+            <!-- Campaign Card 1 -->
+            <div class="col-md-4 campaign-card">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/400x200 " alt="Campaign Title" class="card-img-top" />
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Smart Watch Project</h5>
+                        <p class="card-text text-truncate">A wearable device that tracks health metrics and connects to
+                            your smartphone.</p>
+                        <div class="mt-auto">
+                            <p><strong>Goal:</strong> $5000</p>
+                            <p><strong>Deadline:</strong> 2024-12-31</p>
+                            <button class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                                data-bs-target="#pledgeModal">Pledge Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         <div class="col-md-4 campaign-card">
           <div class="card h-100 shadow-sm">

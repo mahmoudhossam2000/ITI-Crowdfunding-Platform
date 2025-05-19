@@ -56,7 +56,7 @@
       .dashboard-stats .card {
         border-radius: 10px;
         border: none;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       }
       .dashboard-stats .card-body {
         padding: 1.5rem;
@@ -75,7 +75,6 @@
     <div id="header"></div>
 
     <div class="container mt-4">
-      <!-- Dashboard Stats -->
       <div class="row dashboard-stats mb-4">
         <div class="col-md-3">
           <div class="card bg-white">
@@ -114,42 +113,69 @@
           </div>
         </div>
       </div>
-      
+
       <div class="d-flex justify-content-between align-items-center mb-4">
-        <!-- Navigation Tabs -->
         <ul class="nav nav-pills" id="adminTabs" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="users-tab" data-bs-toggle="tab" data-bs-target="#users-content" type="button" role="tab">
+            <button
+              class="nav-link active"
+              id="users-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#users-content"
+              type="button"
+              role="tab"
+            >
               <i class="fas fa-users me-1"></i> User Management
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="campaigns-tab" data-bs-toggle="tab" data-bs-target="#campaigns-content" type="button" role="tab">
+            <button
+              class="nav-link"
+              id="campaigns-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#campaigns-content"
+              type="button"
+              role="tab"
+            >
               <i class="fas fa-bullhorn me-1"></i> Campaign Management
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pending-campaigns-tab" data-bs-toggle="tab" data-bs-target="#pending-campaigns-content" type="button" role="tab">
+            <button
+              class="nav-link"
+              id="pending-campaigns-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#pending-campaigns-content"
+              type="button"
+              role="tab"
+            >
               <i class="fas fa-hourglass-half me-1"></i> Pending Campaigns
-              <span class="badge bg-warning text-dark ms-1" id="pending-badge">0</span>
+              <span class="badge bg-warning text-dark ms-1" id="pending-badge"
+                >0</span
+              >
             </button>
           </li>
         </ul>
-        
-        <!-- Logout Button -->
+
         <button onclick="logout()" class="btn btn-outline-danger">
           <i class="fas fa-sign-out-alt me-1"></i> Logout
         </button>
       </div>
-      
-      <!-- Tab Content -->
+
       <div class="tab-content" id="adminTabsContent">
-        <!-- Users Tab -->
-        <div class="tab-pane fade show active dashboard-tab" id="users-content" role="tabpanel">
+        <div
+          class="tab-pane fade show active dashboard-tab"
+          id="users-content"
+          role="tabpanel"
+        >
           <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>User Management</h2>
             <div class="d-flex">
-              <select class="form-select" id="user-role-filter" style="width: auto">
+              <select
+                class="form-select"
+                id="user-role-filter"
+                style="width: auto"
+              >
                 <option value="all">All Roles</option>
                 <option value="admin">Admin</option>
                 <option value="campaigner">Campaigner</option>
@@ -157,7 +183,7 @@
               </select>
             </div>
           </div>
-          
+
           <div class="card">
             <div class="card-body">
               <div class="table-responsive">
@@ -173,7 +199,6 @@
                     </tr>
                   </thead>
                   <tbody id="users-list">
-                    <!-- Users will be loaded here -->
                     <tr>
                       <td colspan="6" class="text-center py-4">
                         <div class="spinner-border text-primary" role="status">
@@ -187,13 +212,20 @@
             </div>
           </div>
         </div>
-        
-        <!-- All Campaigns Tab -->
-        <div class="tab-pane fade dashboard-tab" id="campaigns-content" role="tabpanel">
+
+        <div
+          class="tab-pane fade dashboard-tab"
+          id="campaigns-content"
+          role="tabpanel"
+        >
           <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Campaign Management</h2>
             <div class="d-flex">
-              <select class="form-select" id="campaign-status-filter" style="width: auto">
+              <select
+                class="form-select"
+                id="campaign-status-filter"
+                style="width: auto"
+              >
                 <option value="all">All Statuses</option>
                 <option value="pending">Pending</option>
                 <option value="active">Active</option>
@@ -201,7 +233,7 @@
               </select>
             </div>
           </div>
-          
+
           <div class="card">
             <div class="card-body">
               <div class="table-responsive">
@@ -218,7 +250,6 @@
                     </tr>
                   </thead>
                   <tbody id="campaigns-list">
-                    <!-- Campaigns will be loaded here -->
                     <tr>
                       <td colspan="7" class="text-center py-4">
                         <div class="spinner-border text-primary" role="status">
@@ -232,13 +263,16 @@
             </div>
           </div>
         </div>
-        
-        <!-- Pending Campaigns Tab -->
-        <div class="tab-pane fade dashboard-tab" id="pending-campaigns-content" role="tabpanel">
+
+        <div
+          class="tab-pane fade dashboard-tab"
+          id="pending-campaigns-content"
+          role="tabpanel"
+        >
           <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Pending Campaign Approvals</h2>
           </div>
-          
+
           <div class="card">
             <div class="card-body">
               <div class="table-responsive">
@@ -254,7 +288,6 @@
                     </tr>
                   </thead>
                   <tbody id="pending-campaigns-list">
-                    <!-- Pending campaigns will be loaded here -->
                     <tr>
                       <td colspan="6" class="text-center py-4">
                         <div class="spinner-border text-primary" role="status">
@@ -271,62 +304,83 @@
       </div>
     </div>
 
-    <!-- Campaign Details Modal -->
     <div class="modal fade" id="campaignModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="campaignModalLabel">Campaign Details</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="campaignModalLabel">
+              Campaign Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
-          <div class="modal-body" id="campaign-details">
-            <!-- Campaign details will be loaded here -->
-          </div>
+          <div class="modal-body" id="campaign-details"></div>
           <div class="modal-footer" id="campaign-actions">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success" id="approve-btn">Approve</button>
-            <button type="button" class="btn btn-danger" id="reject-btn">Reject</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- User Details Modal -->
-    <div class="modal fade" id="userModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="userModalLabel">User Details</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="user-details">
-            <!-- User details will be loaded here -->
-          </div>
-          <div class="modal-footer" id="user-actions">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success" id="approve-user-btn">Approve</button>
-            <button type="button" class="btn btn-danger" id="ban-user-btn">Ban User</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success" id="approve-btn">
+              Approve
+            </button>
+            <button type="button" class="btn btn-danger" id="reject-btn">
+              Reject
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <div class="modal fade" id="userModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="userModalLabel">User Details</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="user-details"></div>
+          <div class="modal-footer" id="user-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-success" id="approve-user-btn">
+              Approve
+            </button>
+            <button type="button" class="btn btn-danger" id="ban-user-btn">
+              Ban User
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Config -->
     <script src="../js/config.js"></script>
-    <!-- Header Component -->
     <script type="module">
-      import { loadHeader } from '../components/header.js';
-      document.getElementById('header').innerHTML = loadHeader();
-      
-      // Ensure logout function is available globally for the header
-      window.logout = function() {
-        localStorage.removeItem('user');
-        window.location.href = '../login.html';
+      import { loadHeader } from "../components/header.js";
+      document.getElementById("header").innerHTML = loadHeader();
+
+      window.logout = function () {
+        localStorage.removeItem("user");
+        window.location.href = "../login.html";
       };
     </script>
-    <!-- Admin JS -->
     <script src="./js/admin.js"></script>
   </body>
 </html>

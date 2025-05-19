@@ -1,4 +1,3 @@
-// Validation functions
 function validateEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -7,12 +6,10 @@ function validatePassword(password) {
   return password.length >= 6;
 }
 
-// Simple password hashing (for demo purposes)
 function hashPassword(password) {
-  return btoa(password); // Base64 encoding (NOT for production use)
+  return btoa(password);
 }
 
-// Register user
 async function registerUser(event) {
   event.preventDefault();
   const name = document.getElementById("name").value.trim();
@@ -20,7 +17,6 @@ async function registerUser(event) {
   const password = document.getElementById("password").value;
   const role = document.getElementById("role").value;
 
-  // Validation
   if (!name || name.length < 2) {
     alert("Name must be at least 2 characters long!");
     return;
@@ -37,7 +33,6 @@ async function registerUser(event) {
   }
 
   try {
-    // Check if email already exists
     const res = await fetch(`${window.config.API_URL}/users?email=${email}`);
     const exists = await res.json();
     if (exists.length > 0) {
@@ -45,8 +40,7 @@ async function registerUser(event) {
       return;
     }
 
-    // Set initial status based on role
-    const isActive = role === "campaigner" ? false : true; // Campaigners need approval
+    const isActive = role === "campaigner" ? false : true;
     const status = role === "campaigner" ? "pending" : "approved";
 
     const newUser = {
@@ -56,7 +50,7 @@ async function registerUser(event) {
       role,
       isActive,
       status,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     };
 
     const response = await fetch(`${window.config.API_URL}/users`, {
@@ -68,7 +62,9 @@ async function registerUser(event) {
     if (!response.ok) throw new Error("Registration failed");
 
     if (role === "campaigner") {
-      alert("Registration successful! Please wait for admin approval before logging in.");
+      alert(
+        "Registration successful! Please wait for admin approval before logging in."
+      );
     } else {
       alert("Registration successful! Please login.");
     }
@@ -79,111 +75,102 @@ async function registerUser(event) {
   }
 }
 
-// Check if user is logged in
 function checkAuth() {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem("user"));
   if (!user) {
-    window.location.href = 'login.html';
+    window.location.href = "login.html";
     return null;
   }
   return user;
 }
 
-// Logout function
 function logout() {
-  localStorage.removeItem('user');
-  window.location.href = 'login.html';
+  localStorage.removeItem("user");
+  window.location.href = "login.html";
 }
 
-// Error handling
 function showError(message) {
-  const errorDiv = document.getElementById('loginError');
+  const errorDiv = document.getElementById("loginError");
   if (errorDiv) {
-      errorDiv.textContent = message;
-      errorDiv.style.display = 'block';
+    errorDiv.textContent = message;
+    errorDiv.style.display = "block";
   } else {
-      alert(message);
+    alert(message);
   }
 }
 
-// Success handling
 function showSuccess(message) {
-  alert(message); // You can replace this with a better UI notification
+  // alert(message);
 }
 
-// Add event listeners when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Handle login form submission
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            try {
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-                if (!validateEmail(email)) {
-                    showError('Please enter a valid email address');
-                    return;
-                }
+      try {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
 
-                if (!validatePassword(password)) {
-                    showError('Password must be at least 6 characters long');
-                    return;
-                }
+        if (!validateEmail(email)) {
+          showError("Please enter a valid email address");
+          return;
+        }
 
-                // Get user from JSON server
-                const response = await fetch(`${window.config.API_URL}/users?email=${email}`);
-                const users = await response.json();
-                const user = users[0];
+        if (!validatePassword(password)) {
+          showError("Password must be at least 6 characters long");
+          return;
+        }
 
-                if (!user) {
-                    showError('Invalid email or password');
-                    return;
-                }
+        const response = await fetch(
+          `${window.config.API_URL}/users?email=${email}`
+        );
+        const users = await response.json();
+        const user = users[0];
 
-                // Verify password
-                if (user.password !== hashPassword(password)) {
-                    showError('Invalid email or password');
-                    return;
-                }
+        if (!user) {
+          showError("Invalid email or password");
+          return;
+        }
 
-                // Check if user is active
-                if (!user.isActive) {
-                    if (user.status === 'pending') {
-                        showError('Your account is pending approval');
-                    } else {
-                        showError('Your account has been deactivated');
-                    }
-                    return;
-                }
+        if (user.password !== hashPassword(password)) {
+          showError("Invalid email or password");
+          return;
+        }
 
-                // Store user info in localStorage (excluding sensitive data)
-                const { password: _, ...userInfo } = user;
-                localStorage.setItem('user', JSON.stringify(userInfo));
+        if (!user.isActive) {
+          if (user.status === "pending") {
+            showError("Your account is pending approval");
+          } else {
+            showError("Your account has been deactivated");
+          }
+          return;
+        }
 
-                console.log('Login successful, redirecting to:', window.config.REDIRECTS[user.role]);
-                
-                // Redirect based on role
-                window.location.href = window.config.REDIRECTS[user.role];
+        const { password: _, ...userInfo } = user;
+        localStorage.setItem("user", JSON.stringify(userInfo));
 
-            } catch (error) {
-                console.error('Login error:', error);
-                showError('Login failed. Please try again.');
-            }
-        });
-    }
-    
-    // Handle registration form (if needed)
-    const registerForm = document.getElementById('register-form');
-    if (registerForm) {
-        registerForm.addEventListener('submit', registerUser);
-    }
+        console.log(
+          "Login successful, redirecting to:",
+          window.config.REDIRECTS[user.role]
+        );
+
+        window.location.href = window.config.REDIRECTS[user.role];
+      } catch (error) {
+        console.error("Login error:", error);
+        showError("Login failed. Please try again.");
+      }
+    });
+  }
+
+  const registerForm = document.getElementById("register-form");
+  if (registerForm) {
+    registerForm.addEventListener("submit", registerUser);
+  }
 });
 
-// Handle logout (exposed globally)
-window.logout = function() {
-    localStorage.removeItem('user');
-    window.location.href = 'login.html'; // Remove the leading slash
+window.logout = function () {
+  localStorage.removeItem("user");
+  window.location.href = "login.html";
 };

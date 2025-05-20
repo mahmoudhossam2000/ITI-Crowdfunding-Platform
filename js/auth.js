@@ -85,8 +85,19 @@ function checkAuth() {
 }
 
 function logout() {
+  const user = JSON.parse(localStorage.getItem("user")) || {};
+  const role = user.role;
   localStorage.removeItem("user");
-  window.location.href = "login.html";
+
+  if (role === "backer" || role === "campaigner") {
+    window.location.href = window.location.pathname.includes("/")
+      ? "/index.html"
+      : "index.html";
+  } else {
+    window.location.href = window.location.pathname.includes("/")
+      ? "/login.html"
+      : "login.html";
+  }
 }
 
 function showError(message) {
@@ -171,6 +182,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.logout = function () {
+  const user = JSON.parse(localStorage.getItem("user")) || {};
+  const role = user.role;
   localStorage.removeItem("user");
-  window.location.href = "login.html";
+
+  if (role === "backer" || role === "campaigner") {
+    window.location.href = window.location.pathname.includes("/")
+      ? "/index.html"
+      : "index.html";
+  } else {
+    window.location.href = window.location.pathname.includes("/")
+      ? "/login.html"
+      : "login.html";
+  }
 };

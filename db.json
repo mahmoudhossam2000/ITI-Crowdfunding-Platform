@@ -197,8 +197,8 @@
       ],
       "createdAt": "2025-05-19T17:03:26.616Z",
       "currentAmount": 0,
-      "isApproved": false,
-      "status": "pending"
+      "isApproved": true,
+      "status": "active"
     }
   ],
   "pledges": [

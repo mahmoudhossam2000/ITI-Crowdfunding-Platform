@@ -28,86 +28,70 @@ function getImageUrl(imagePath) {
 
 //Full Text Search
 const fullTextSearch = () => {
-    const searchText = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
-    const resultsContainer = document.getElementById('results');
-    const noResults = document.getElementById('noResults');
-    const loader = document.getElementById('search-loader');
-    const emptyMessage = document.getElementById('empty-search-message');
-
-    searchBtn?.addEventListener('click', async function () {
-        const query = searchText.value.trim().toLowerCase();
-
-        resultsContainer.innerHTML = '';
-        noResults.classList.add('d-none');
-        emptyMessage.classList.add('d-none');
-        loader.classList.remove('d-none');
-
-        if (!query) {
-            emptyMessage.classList.remove('d-none');
-            loader.classList.add('d-none');
+    // Function to initialize search once elements exist
+    const initSearch = () => {
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+        
+        if (!searchInput || !searchBtn) {
+            // Elements don't exist yet, try again in 100ms
+            setTimeout(initSearch, 100);
             return;
         }
-
-        try {
-            const res = await fetch(`http://localhost:3000/campaigns`);
-            if (!res.ok) throw new Error("Failed to load campaigns");
-
-            const campaigns = await res.json();
-
-            //Manually filter the campaigns
-            const filtered = campaigns.filter(campaign =>
-                campaign.title.toLowerCase().includes(query) ||
-                campaign.description.toLowerCase().includes(query)
-            );
-
-            loader.classList.add('d-none');
-
-            if (filtered.length === 0) {
-                noResults.classList.remove('d-none');
-                return;
+        
+        console.log('Search elements found, initializing search functionality');
+        
+        // Toggle search input visibility when search button is clicked
+        let isSearchOpen = false;
+        
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (!isSearchOpen) {
+                // Open search
+                searchInput.style.width = '200px';
+                searchInput.style.padding = '0.375rem 0.75rem';
+                searchInput.style.border = '1px solid #ced4da';
+                searchInput.focus();
+                isSearchOpen = true;
+            } else if (searchInput.value.trim() !== '') {
+                // Perform search if input has value
+                performSearch(searchInput.value.trim());
+            } else {
+                // Close search if clicking again with empty input
+                searchInput.style.width = '0';
+                searchInput.style.padding = '0';
+                searchInput.style.border = 'none';
+                isSearchOpen = false;
             }
-
-            // Render filtered results
-            filtered.forEach(campaign => {
-                const progress = (campaign.currentAmount / campaign.goal) * 100;
-                const daysLeft = Math.ceil((new Date(campaign.deadline) - new Date()) / (1000 * 60 * 60 * 24));
-                const imageUrl = getImageUrl(campaign.image);
-
-                resultsContainer.innerHTML += `
-                    <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <img src="${imageUrl}" 
-                             class="card-img-top" 
-                             alt="${campaign.title}"
-                             style="height: 200px; object-fit: cover;"
-                             onerror="this.src='../assets/images/90112949_1743953827906232_r.webp'">
-                        <div class="card-body">
-                            <h5 class="card-title">${campaign.title}</h5>
-                            <p class="card-text text-muted">${campaign.description ? campaign.description.substring(0, 100) + '...' : ''}</p>
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: ${progress}%" 
-                                     aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">$${campaign.currentAmount.toLocaleString()} raised</small>
-                                <small class="text-muted">${daysLeft} days left</small>
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white border-0">
-                            <a href="/campaign.html?id=${campaign.id}" class="btn btn-outline-primary w-100">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                `;
-            });
-
-        } catch (error) {
-            loader.classList.add('d-none');
-            console.error("Search error:", error);
-            alert("An error occurred while fetching results.");
-        }
-    });
+        });
+        
+        // Handle clicking outside to close search
+        document.addEventListener('click', function(e) {
+            if (isSearchOpen && e.target !== searchInput && e.target !== searchBtn && !searchBtn.contains(e.target)) {
+                searchInput.style.width = '0';
+                searchInput.style.padding = '0';
+                searchInput.style.border = 'none';
+                isSearchOpen = false;
+            }
+        });
+        
+        // Handle Enter key press in search input
+        searchInput.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter' && this.value.trim() !== '') {
+                performSearch(this.value.trim());
+            }
+        });
+    };
+    
+    // Start the initialization process
+    initSearch();
+    
+    // Search function that handles the actual searching
+    const performSearch = async (query) => {
+        // Navigate to index.html with search query parameter
+        window.location.href = `/index.html?search=${encodeURIComponent(query)}`;
+    };
 };
 
 const getCurrentUser = () => {

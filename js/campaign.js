@@ -108,8 +108,9 @@ function displayCampaignDetails(campaign) {
   const progress = (campaign.currentAmount / campaign.goal) * 100;
   const backerCount = campaign.backers ? campaign.backers.length : 0;
   const categoryDisplay = campaign.category
-    ? `<span class="badge bg-secondary">${campaign.category.charAt(0).toUpperCase() + campaign.category.slice(1)
-    }</span>`
+    ? `<span class="badge bg-secondary">${
+        campaign.category.charAt(0).toUpperCase() + campaign.category.slice(1)
+      }</span>`
     : "";
 
   const currentUser = getCurrentUser();
@@ -129,8 +130,8 @@ function displayCampaignDetails(campaign) {
                 <div class="d-flex mb-4 gap-2 align-items-center">
                     ${categoryDisplay}
                     <span class="text-muted">Created on ${formatDate(
-    campaign.createdAt
-  )}</span>
+                      campaign.createdAt
+                    )}</span>
                 </div>
                 
                 <div class="mb-4">
@@ -142,26 +143,29 @@ function displayCampaignDetails(campaign) {
                 <div class="mb-4">
                     <h4>Updates</h4>
                     <div id="updates-container">
-                        ${campaign.updates && campaign.updates.length > 0
-      ? campaign.updates
-        .map(
-          (update) => `
+                        ${
+                          campaign.updates && campaign.updates.length > 0
+                            ? campaign.updates
+                                .map(
+                                  (update) => `
                                 <div class="card mb-3">
                                     <div class="card-body">
-                                        <h5 class="card-title">${update.title
-            }</h5>
+                                        <h5 class="card-title">${
+                                          update.title
+                                        }</h5>
                                         <p class="card-text text-muted small mb-2">${formatDate(
-              update.date
-            )}</p>
-                                        <p class="card-text">${update.content
-            }</p>
+                                          update.date
+                                        )}</p>
+                                        <p class="card-text">${
+                                          update.content
+                                        }</p>
                                     </div>
                                 </div>
                             `
-        )
-        .join("")
-      : '<p class="text-muted">No updates yet</p>'
-    }
+                                )
+                                .join("")
+                            : '<p class="text-muted">No updates yet</p>'
+                        }
                     </div>
                 </div>
             </div>
@@ -170,11 +174,11 @@ function displayCampaignDetails(campaign) {
                 <div class="card mb-4">
                     <div class="card-body">
                         <h4 class="mb-3">${formatCurrency(
-      campaign.currentAmount
-    )} raised</h4>
+                          campaign.currentAmount
+                        )} raised</h4>
                         <p class="text-muted">of ${formatCurrency(
-      campaign.goal
-    )} goal</p>
+                          campaign.goal
+                        )} goal</p>
                         
                         <div class="progress mb-3">
                             <div class="progress-bar" role="progressbar" 
@@ -186,16 +190,12 @@ function displayCampaignDetails(campaign) {
                         
                         <div class="d-flex justify-content-between mb-4">
                             <div>
-                                <p class="fw-bold mb-0">${backerCount}</p>
-                                <p class="text-muted">Backers</p>
-                            </div>
-                            <div>
                                 <p class="fw-bold mb-0">${getDaysLeft(
-      campaign.deadline
-    )}</p>
+                                  campaign.deadline
+                                )}</p>
                                 <p class="text-muted">Deadline: ${formatDate(
-      campaign.deadline
-    )}</p>
+                                  campaign.deadline
+                                )}</p>
                             </div>
                         </div>
                         
@@ -206,32 +206,35 @@ function displayCampaignDetails(campaign) {
                 <!-- Rewards Section -->
                 <h4 class="mb-3">Rewards</h4>
                 <div id="rewards-container">
-                    ${campaign.rewards && campaign.rewards.length > 0
-      ? campaign.rewards
-        .map(
-          (reward) => `
+                    ${
+                      campaign.rewards && campaign.rewards.length > 0
+                        ? campaign.rewards
+                            .map(
+                              (reward) => `
                             <div class="card mb-3">
                                 <div class="card-body">
                                     <h5 class="card-title">${reward.title}</h5>
                                     <p class="card-text fw-bold mb-2">${formatCurrency(
-            reward.amount
-          )}</p>
-                                    <p class="card-text">${reward.description
-            }</p>
-                                    ${userRole === "backer"
-              ? `<a href="backer/pledge.html?id=${campaign.id}&reward=${reward.amount}" 
+                                      reward.amount
+                                    )}</p>
+                                    <p class="card-text">${
+                                      reward.description
+                                    }</p>
+                                    ${
+                                      userRole === "backer"
+                                        ? `<a href="backer/pledge.html?id=${campaign.id}&reward=${reward.amount}" 
                                             class="btn btn-outline-primary w-100">
                                             Select this reward
                                         </a>`
-              : ""
-            }
+                                        : ""
+                                    }
                                 </div>
                             </div>
                         `
-        )
-        .join("")
-      : '<p class="text-muted">No rewards available for this campaign</p>'
-    }
+                            )
+                            .join("")
+                        : '<p class="text-muted">No rewards available for this campaign</p>'
+                    }
                 </div>
             </div>
         </div>

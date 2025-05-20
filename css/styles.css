@@ -131,6 +131,27 @@ footer hr {
   padding-right: 1.5rem;
 }
 
+/* Fullscreen modal styles */
+    .modal-fullscreen {
+      width: 100vw;
+      max-width: none;
+      height: 90vh;
+      margin: 0;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .modal-fullscreen .modal-content {
+      height: 100%;
+      border: none;
+      overflow-y: auto;
+    }
+
+    .search-result-card img {
+      object-fit: cover;
+      height: 200px;
+    }
+
 @media (max-width: 768px) {
   .hero {
     padding: 4rem 0;

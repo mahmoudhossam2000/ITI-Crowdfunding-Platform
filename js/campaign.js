@@ -220,14 +220,7 @@ function displayCampaignDetails(campaign) {
                                     <p class="card-text">${
                                       reward.description
                                     }</p>
-                                    ${
-                                      userRole === "backer"
-                                        ? `<a href="backer/pledge.html?id=${campaign.id}&reward=${reward.amount}" 
-                                            class="btn btn-outline-primary w-100">
-                                            Select this reward
-                                        </a>`
-                                        : ""
-                                    }
+                                    
                                 </div>
                             </div>
                         `

@@ -174,7 +174,7 @@
         }
       ],
       "createdAt": "2025-05-19T08:26:09.548Z",
-      "currentAmount": 0,
+      "currentAmount": 2000,
       "isApproved": true,
       "status": "active"
     },
@@ -273,6 +273,14 @@
       "amount": 1000,
       "rewardId": null,
       "timestamp": "2025-05-20T11:44:36.739Z"
+    },
+    {
+      "id": "00bf",
+      "campaignId": "649a",
+      "userId": "0cfb",
+      "amount": 2000,
+      "rewardId": "r2",
+      "timestamp": "2025-05-20T12:07:32.907Z"
     }
   ],
   "updates": []

@@ -192,47 +192,67 @@ async function openPledgeModal(campaignId) {
     //     }
     // });
 
-function handleFormSubmission (){
-     const pledgeForm = document.getElementById("pledgeForm");
-    if (pledgeForm) {
-        pledgeForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
+async function handleFormSubmission() {
+  const pledgeForm = document.getElementById("pledgeForm");
+  if (pledgeForm) {
+    pledgeForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-            const campaignId = document.getElementById("campaignIdInput").value;
-            const userId = document.getElementById("userIdInput").value;
-            const amount = parseFloat(document.getElementById("amountInput").value);
-            const rewardId = document.querySelector('input[name="reward"]:checked')?.value || null;
+      const campaignId = document.getElementById("campaignIdInput").value;
+      const userId = document.getElementById("userIdInput").value;
+      const amount = parseFloat(document.getElementById("amountInput").value);
+      const rewardId = document.querySelector('input[name="reward"]:checked')?.value || null;
 
-        console.log(campaignId, userId, amount, rewardId);
+      const pledge = {
+        campaignId,
+        userId,
+        amount,
+        rewardId,
+        timestamp: new Date().toISOString()
+      };
 
-            const pledge = {
-                campaignId,
-                userId,
-                amount,
-                rewardId,
-                timestamp: new Date().toISOString()
-            };
-
-            try {
-                const res = await fetch(`${window.config.API_URL}/pledges`, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(pledge)
-                });
-
-                if (!res.ok) throw new Error("Failed to submit pledge");
-
-                alert("Thank you for your pledge!");
-                bootstrap.Modal.getInstance(document.getElementById("pledgeModal")).hide();
-            } catch (error) {
-                console.error("Error submitting pledge:", error);
-                alert("There was a problem submitting your pledge.");
-            }
+      try {
+        // 1. Submit the pledge
+        const res = await fetch(`${window.config.API_URL}/pledges`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(pledge)
         });
-    }
+
+        if (!res.ok) throw new Error("Failed to submit pledge");
+
+        // 2. Fetch the campaign to get currentAmount
+        const campaignRes = await fetch(`${window.config.API_URL}/campaigns/${campaignId}`);
+        if (!campaignRes.ok) throw new Error("Failed to fetch campaign");
+
+        const campaign = await campaignRes.json();
+
+        // 3. Update currentAmount
+        const updatedAmount = campaign.currentAmount + amount;
+
+        const updateRes = await fetch(`${window.config.API_URL}/campaigns/${campaignId}`, {
+          method: "PATCH", // or "PUT" depending on your API
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ currentAmount: updatedAmount })
+        });
+
+        if (!updateRes.ok) throw new Error("Failed to update campaign amount");
+
+        // 4. Done
+        alert("Thank you for your pledge!");
+        bootstrap.Modal.getInstance(document.getElementById("pledgeModal")).hide();
+      } catch (error) {
+        console.error("Error submitting pledge:", error);
+        alert("There was a problem submitting your pledge.");
+      }
+    });
+  }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     fullTextSearch();

@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Backer Dashboard</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="css/backer.css" />
-  </head>
 
-  <body>
-    <div id="header"></div>
-    <div class="container py-4">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backer Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="css/backer.css" />
+</head>
+
+<body>
+  <div id="header"></div>
+  <!-- <div class="container py-4">
       <div class="d-flex justify-content-between">
         <h2 class="mb-4">Explore Campaigns</h2>
         <a href="./my-pledges.html"
@@ -26,7 +21,6 @@
         >
       </div>
 
-        <!-- Search & Filter -->
         <div class="row mb-4">
             <div class="col-md-6">
                 <input type="text" class="form-control" placeholder="Search campaigns..." />
@@ -34,10 +28,7 @@
             <div class="col-md-4">
                 <select id="categoryFilter" class="form-select">
                     <option>All Categories</option>
-                    <!-- <option>Technology</option>
-                    <option>Art</option>
-                    <option>Music</option>
-                    <option>Film</option> -->
+                   
                 </select>
             </div>
             <div class="col-md-2">
@@ -45,10 +36,8 @@
             </div>
         </div>
 
-        <!-- Campaign Cards -->
         <div id="campaignList" class="row g-4">
 
-            <!-- Campaign Card 1 -->
             <div class="col-md-4 campaign-card">
                 <div class="card h-100 shadow-sm">
                     <img src="https://via.placeholder.com/400x200 " alt="Campaign Title" class="card-img-top" />
@@ -204,12 +193,40 @@
           </div>
         </div>
       </div>
+    </div> -->
+
+  <div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-semibold">Backer Dashboard</h2>
+
+      <div>
+        <select id="categoryFilter" class="form-select">
+          <option value="">All Categories</option>
+        </select>
+      </div>
     </div>
 
-    <div id="footer"></div>
+    <div class="mb-4">
+          <!-- <h4 class="mb-3">My Pledges</h4> -->
+          <div id="campaignList" class="row g-4">
+            <!-- filterd campaigns will be rendered here -->
+          </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/config.js"></script>
-    <script type="module" src="js/backer.js"></script>
-  </body>
+    <!-- Pledges Section -->
+    <div class="mb-4">
+      <h4 class="mb-3">My Pledges</h4>
+      <div id="pledgeList" class="row g-4">
+        <!-- Pledges will be rendered here -->
+      </div>
+    </div>
+  </div>
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/config.js"></script>
+  <script type="module" src="js/backer.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
 </html>

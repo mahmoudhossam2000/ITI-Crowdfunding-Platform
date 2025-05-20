@@ -71,10 +71,11 @@
       "deadline": "2025-06-30",
       "isApproved": true,
       "creatorId": 2,
-      "image": "assets/images/90112949_1743953827906232_r.webp"
+      "image": "assets/images/90112949_1743953827906232_r.webp",
+      "category": "education"
     },
     {
-      "id": "2",
+      "id": "6",
       "title": "Community Health Initiative",
       "description": "Supporting local healthcare facilities with essential medical equipment.",
       "goal": 75000,
@@ -82,7 +83,8 @@
       "deadline": "2024-11-30",
       "isApproved": true,
       "creatorId": 1,
-      "image": "assets/images/83643253_1729646633532992_r.webp"
+      "image": "assets/images/83643253_1729646633532992_r.webp",
+      "category": "health"
     },
     {
       "id": "3",
@@ -93,7 +95,8 @@
       "deadline": "2025-08-31",
       "isApproved": true,
       "creatorId": 4,
-      "image": "assets/images/90535223_174594004592913_r.webp"
+      "image": "assets/images/90535223_174594004592913_r.webp",
+      "category": "health"
     },
     {
       "id": "4",
@@ -104,7 +107,8 @@
       "deadline": "2024-10-31",
       "isApproved": true,
       "creatorId": 1,
-      "image": "assets/images/74199625_1704822987909919_r.webp"
+      "image": "assets/images/74199625_1704822987909919_r.webp",
+      "category": "community"
     },
     {
       "id": "5",
@@ -115,7 +119,8 @@
       "deadline": "2025-10-15",
       "isApproved": true,
       "creatorId": 2,
-      "image": "assets/images/90522259_1745443577773977_r.webp"
+      "image": "assets/images/90522259_1745443577773977_r.webp",
+      "category": "technology"
     },
     {
       "id": "1",
@@ -126,7 +131,8 @@
       "deadline": "2024-12-31",
       "isApproved": true,
       "creatorId": 1,
-      "image": "assets/images/90233535_1744365871181228_r.webp"
+      "image": "assets/images/90233535_1744365871181228_r.webp",
+      "category": "community"
     },
     {
       "id": "c770",
@@ -138,6 +144,7 @@
       "image": "https://www.bing.com/th/id/OIP.B39-1EvwOFXOffOfIKZT0AHaEK?w=242&h=211&c=8&rs=1&qlt=90&r=0&o=6&dpr=1.3&pid=3.1&rm=2",
       "rewards": [
         {
+          "id": "r1",
           "title": "15",
           "amount": 19,
           "description": "children"
@@ -146,7 +153,8 @@
       "createdAt": "2025-05-16T16:33:20.540Z",
       "currentAmount": 0,
       "isApproved": true,
-      "status": "active"
+      "status": "active",
+      "category": "education"
     },
     {
       "id": "649a",
@@ -159,6 +167,7 @@
       "image": "https://th.bing.com/th/id/R.0b42b41799cfcc3da747f6468e0caca0?rik=qs2C9jsTxCK%2fKQ&riu=http%3a%2f%2fwww.parsicuisine.com%2fwp-content%2fuploads%2f2015%2f01%2fhealth.jpg&ehk=SBoj%2bcoeoT9R8QeI1qWmSCFgiA6t8tFXQ89xF0Xrdbo%3d&risl=&pid=ImgRaw&r=0",
       "rewards": [
         {
+          "id": "r2",
           "title": "5000",
           "amount": 5,
           "description": "test2"
@@ -176,10 +185,11 @@
       "description": "Help developers make a decent living after being replaced by AI.",
       "goal": 100000,
       "deadline": "2025-07-08",
-      "category": "community",
+      "category": "technology",
       "image": "https://www.sourcelabs.nl/wp-content/uploads/2023/04/3fe6d35d80239450d9e27c27dd0ff014-300x227.jpg",
       "rewards": [
         {
+          "id": "r3",
           "title": "10",
           "amount": 10,
           "description": "10"
@@ -247,6 +257,22 @@
       "amount": 20,
       "rewardId": null,
       "timestamp": "2025-05-17T18:00:00Z"
+    },
+    {
+      "id": "339e",
+      "campaignId": "c770",
+      "userId": "0cfb",
+      "amount": 77,
+      "rewardId": "undefined",
+      "timestamp": "2025-05-20T00:57:47.402Z"
+    },
+    {
+      "id": "1ffa",
+      "campaignId": "2",
+      "userId": "0cfb",
+      "amount": 1000,
+      "rewardId": null,
+      "timestamp": "2025-05-20T11:44:36.739Z"
     }
   ],
   "updates": []

@@ -63,42 +63,6 @@
   ],
   "campaigns": [
     {
-      "id": "2",
-      "title": "Fund a Mobile Library for Rural Kids",
-      "description": "Help bring books to children in remote areas with a mobile library van. This project will provide educational resources, inspire learning, and foster a love for reading among underserved kids. Your support will fund the van, books, and staff training.",
-      "goal": 12000,
-      "currentAmount": 4800,
-      "deadline": "2025-06-30",
-      "isApproved": true,
-      "creatorId": 2,
-      "image": "assets/images/90112949_1743953827906232_r.webp",
-      "category": "education"
-    },
-    {
-      "id": "6",
-      "title": "Community Health Initiative",
-      "description": "Supporting local healthcare facilities with essential medical equipment.",
-      "goal": 75000,
-      "currentAmount": 45000,
-      "deadline": "2024-11-30",
-      "isApproved": true,
-      "creatorId": 1,
-      "image": "assets/images/83643253_1729646633532992_r.webp",
-      "category": "health"
-    },
-    {
-      "id": "3",
-      "title": "Medical Aid for Families in Need",
-      "description": "Many families struggle to afford critical medical treatments. This campaign will fund surgeries, medications, and therapy for those in need. Your contribution can save lives and provide hope to those facing health challenges.",
-      "goal": 20000,
-      "currentAmount": 6000,
-      "deadline": "2025-08-31",
-      "isApproved": true,
-      "creatorId": 4,
-      "image": "assets/images/90535223_174594004592913_r.webp",
-      "category": "health"
-    },
-    {
       "id": "4",
       "title": "Green City Project",
       "description": "Help us plant more trees and create sustainable green spaces in our city.",
@@ -199,6 +163,27 @@
       "currentAmount": 0,
       "isApproved": true,
       "status": "active"
+    },
+    {
+      "id": "7324",
+      "creatorId": "49fc",
+      "title": "test5",
+      "description": "test5",
+      "goal": 19000,
+      "deadline": "",
+      "category": "technology",
+      "image": "https://www.bing.com/th/id/OIP.K8urvQKqHarydD5ixvdQBAHaFI?w=244&h=211&c=8&rs=1&qlt=90&r=0&o=6&dpr=1.3&pid=3.1&rm=2",
+      "rewards": [
+        {
+          "title": "",
+          "amount": 0,
+          "description": ""
+        }
+      ],
+      "createdAt": "2025-05-21T06:11:13.348Z",
+      "currentAmount": 0,
+      "isApproved": false,
+      "status": "rejected"
     }
   ],
   "pledges": [
@@ -220,7 +205,7 @@
     },
     {
       "id": "p3",
-      "campaignId": "2",
+      "campaignId": null,
       "userId": "d139",
       "amount": 250,
       "rewardId": null,
@@ -228,7 +213,7 @@
     },
     {
       "id": "p4",
-      "campaignId": "3",
+      "campaignId": null,
       "userId": "667e",
       "amount": 75,
       "rewardId": null,
@@ -268,7 +253,7 @@
     },
     {
       "id": "1ffa",
-      "campaignId": "2",
+      "campaignId": null,
       "userId": "0cfb",
       "amount": 1000,
       "rewardId": null,

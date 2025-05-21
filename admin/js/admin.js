@@ -558,7 +558,7 @@ async function approveCampaign(campaignId) {
 
 async function rejectCampaign(campaignId) {
   try {
-    const campaign = currentCampaigns.find((c) => c.id === campaignId);
+    const campaign = allCampaigns.find((c) => c.id === campaignId);
     if (!campaign) throw new Error("Campaign not found");
 
     const updatedCampaign = {
@@ -578,7 +578,7 @@ async function rejectCampaign(campaignId) {
       }),
     });
 
-    await loadCampaigns(statusFilter.value);
+    await loadFilteredCampaigns(campaignStatusFilter.value);
 
     const campaignModal = bootstrap.Modal.getInstance(
       document.getElementById("campaignModal")

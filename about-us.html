@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons @1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        .card {
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .bi-check-circle-fill {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="container py-5">
+
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold">About Our Platform</h1>
+            <p class="lead">A crowdfunding platform built to empower creators and connect them with passionate backers.
+            </p>
+        </div>
+
+        <section class="mb-5">
+            <h2 class="fw-bold mb-3">Our Story</h2>
+            <p>
+                We created this crowdfunding platform out of passion for innovation and community support.
+                Our goal is to give creators the tools they need to bring their ideas to life and help backers discover
+                exciting new projects.
+            </p>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="fw-bold mb-3">What Makes Us Unique?</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Role-based access
+                    (Admin, Campaigner, Backer)</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Easy campaign
+                    creation with image uploads</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Real-time pledge
+                    tracking and reward system</li>
+                <li class="list-group-item"><i class="bi bi-check-circle-fill text-success me-2"></i> Moderated content
+                    for safety and trust</li>
+            </ul>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="fw-bold mb-4 text-center">Meet the Developers</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex align-items-center">
+                            <img src="assets/images/web-developer.png" alt="Mahmoud Hossam" class="rounded-circle me-4"
+                                width="80" height="80">
+                            <div>
+                                <h5 class="card-title mb-1">Mahmoud Hossam</h5>
+                                <p class="text-muted small mb-1">Front-end & Cross-platform Mobile Developer</p>
+                                <p class="card-text">Focused on building responsive UIs and ensuring smooth user
+                                    experiences across platforms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex align-items-center">
+                            <img src="assets/images/web-developer.png" alt="Mohammad Hamdy" class="rounded-circle me-4"
+                                width="80" height="80">
+                            <div>
+                                <h5 class="card-title mb-1">Mohammad Hamdy</h5>
+                                <p class="text-muted small mb-1">Front-end & Cross-platform Mobile Developer</p>
+                                <p class="card-text">Passionate about JavaScript and full-stack development, helping
+                                    bring creative ideas to life.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="fw-bold mb-4 text-center">Send Us Your Feedback</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card border-0 shadow-sm p-4">
+                        <form id="feedbackForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Your Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" rows="4"
+                                    placeholder="Tell us what you think..." required></textarea>
+                            </div>
+                            <div id="successMessage" class="alert alert-success d-none" role="alert">
+                                Thank you! Your feedback has been submitted.
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Submit Feedback</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/config.js"></script>
+    <script type="module" src="js/campaign.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/about-us.js"></script>
+</body>
+
+</html>

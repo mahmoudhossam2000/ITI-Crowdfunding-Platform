@@ -45,7 +45,7 @@ export function loadHeader() {
                         <a class="nav-link" href="${homePath}#discover">Discover</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="${homePath}#discover">About Us</a>
+                        <a class="nav-link" href="/about-us.html">About Us</a>
                     </li>
                     ${
                       isLoggedIn

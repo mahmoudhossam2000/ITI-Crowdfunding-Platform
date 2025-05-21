@@ -115,7 +115,7 @@
         }
       ],
       "createdAt": "2025-05-16T16:33:20.540Z",
-      "currentAmount": 0,
+      "currentAmount": 2000,
       "isApproved": true,
       "status": "active",
       "category": "education"
@@ -266,7 +266,35 @@
       "amount": 2000,
       "rewardId": "r2",
       "timestamp": "2025-05-20T12:07:32.907Z"
+    },
+    {
+      "id": "1246",
+      "campaignId": "c770",
+      "userId": "6b3c",
+      "amount": 2000,
+      "rewardId": "r1",
+      "timestamp": "2025-05-21T00:44:07.852Z"
     }
   ],
-  "updates": []
+  "updates": [],
+  "feedbacks": [
+    {
+      "id": "9dc4",
+      "name": "mohammad",
+      "email": "mohammad@user.com",
+      "message": "very good platform"
+    },
+    {
+      "id": "779e",
+      "name": "ahmed",
+      "email": "mohammad@camp.com",
+      "message": "hello , thanks"
+    },
+    {
+      "id": "4589",
+      "name": "ali",
+      "email": "ali@user.com",
+      "message": "good job"
+    }
+  ]
 }

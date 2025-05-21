@@ -42,13 +42,21 @@ async function loadCampaigns() {
     const response = await fetch(`${window.config.API_URL}/campaigns`);
     const allCampaigns = await response.json();
 
+    const pledges= await fetch('http://localhost:3000/pledges').then(res => res.json())
+
+    // Group pledges by campaignId
+    const pledgesMap = {};
+    pledges.forEach(p => {
+      if (!pledgesMap[p.campaignId]) pledgesMap[p.campaignId] = [];
+      pledgesMap[p.campaignId].push(p);
+    });
+
     console.log("All campaigns:", allCampaigns);
     console.log("Current user:", user);
 
     const userCampaigns = allCampaigns.filter((campaign) => {
       console.log(
-        `Campaign ID ${campaign.id} has creatorId: ${
-          campaign.creatorId
+        `Campaign ID ${campaign.id} has creatorId: ${campaign.creatorId
         } (type: ${typeof campaign.creatorId})`
       );
 
@@ -65,7 +73,7 @@ async function loadCampaigns() {
     console.log("User campaigns found:", userCampaigns.length);
     console.log("User campaigns:", userCampaigns);
 
-    displayCampaigns(userCampaigns);
+    displayCampaigns(userCampaigns, pledgesMap);
 
     if (userCampaigns.length === 0) {
       console.log("Trying alternative fetch method...");
@@ -77,7 +85,7 @@ async function loadCampaigns() {
 
       if (directCampaigns.length > 0) {
         console.log("Using direct query campaigns");
-        displayCampaigns(directCampaigns);
+        displayCampaigns(directCampaigns, pledgesMap);
       }
     }
   } catch (error) {
@@ -88,7 +96,7 @@ async function loadCampaigns() {
   }
 }
 
-function displayCampaigns(campaigns) {
+function displayCampaigns(campaigns, pledgesMap) {
   if (campaigns.length === 0) {
     campaignsList.innerHTML = `
             <div class="col-12 text-center">
@@ -121,13 +129,14 @@ function displayCampaigns(campaigns) {
         statusText = "Completed";
       }
 
+      const pledgeCount = pledgesMap[campaign.id]?.length || 0; // call a fun to get pledges number
+
       return `
         <div class="col-md-6 col-lg-4 mb-4">
             <div class="card campaign-card h-100">
                 <div class="position-relative">
-                    <img src="${campaign.image}" class="card-img-top" alt="${
-        campaign.title
-      }" 
+                    <img src="${campaign.image}" class="card-img-top" alt="${campaign.title
+        }" 
                          onerror="this.src='../assets/images/90112949_1743953827906232_r.webp'">
                     <span class="position-absolute top-0 end-0 badge ${statusBadgeClass} m-2">
                         ${statusText}
@@ -136,16 +145,15 @@ function displayCampaigns(campaigns) {
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">${campaign.title}</h5>
                     <p class="card-text">${campaign.description.substring(
-                      0,
-                      100
-                    )}...</p>
+          0,
+          100
+        )}...</p>
                     
                     <div class="progress campaign-progress mb-3">
                         <div class="progress-bar bg-primary" role="progressbar" 
-                             style="width: ${
-                               ((campaign.currentAmount || 0) / campaign.goal) *
-                               100
-                             }%" 
+                             style="width: ${((campaign.currentAmount || 0) / campaign.goal) *
+        100
+        }%" 
                              aria-valuenow="${campaign.currentAmount || 0}" 
                              aria-valuemin="0" 
                              aria-valuemax="${campaign.goal}">
@@ -154,33 +162,34 @@ function displayCampaigns(campaigns) {
                     
                     <div class="campaign-stats">
                         <div class="campaign-stat-item">
-                            <span class="campaign-stat-value">$${
-                              campaign.currentAmount || 0
-                            }</span>
-                            <span class="campaign-stat-label">raised of $${
-                              campaign.goal
-                            }</span>
+                            <span class="campaign-stat-value">$${campaign.currentAmount || 0
+        }</span>
+                            <span class="campaign-stat-label">raised of $${campaign.goal
+        }</span>
                         </div>
                         <div class="campaign-stat-item">
                             <span class="campaign-stat-value">${getDaysLeft(
-                              campaign.deadline
-                            )}</span>
+          campaign.deadline
+        )}</span>
                             <span class="campaign-stat-label">days left</span>
+                        </div>
+                        <div class="campaign-stat-item">
+                            <span class="pledges-count" class="campaign-stat-value">${pledgeCount}</span>
+                            <span class="campaign-stat-label">Pledges</span>
                         </div>
                     </div>
                     
                     <div class="mt-auto pt-3">
-                        ${
-                          campaign.status === "pending"
-                            ? `<div class="alert alert-warning mb-3" role="alert">
+                        ${campaign.status === "pending"
+          ? `<div class="alert alert-warning mb-3" role="alert">
                                 <i class="fas fa-clock"></i> Your campaign is awaiting admin approval.
                             </div>`
-                            : campaign.status === "rejected"
-                            ? `<div class="alert alert-danger mb-3" role="alert">
+          : campaign.status === "rejected"
+            ? `<div class="alert alert-danger mb-3" role="alert">
                                 <i class="fas fa-times-circle"></i> This campaign was rejected by an admin.
                             </div>`
-                            : ""
-                        }
+            : ""
+        }
                         
                         <div class="campaign-actions d-flex justify-content-center">
                             <button 
@@ -371,6 +380,22 @@ function getDaysLeft(deadline) {
   return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
 }
 
+async function getPledgesNum(campaignId) {
+  let pledgesTarger = document.querySelector('.pledges-count');
+  try {
+    const response = await fetch(`http://localhost:3000/pledges?campaignId=${campaignId}`);
+    if (!response.ok) throw new Error('Failed to fetch pledges');
+
+    const pledges = await response.json();
+    console.log(`The number of pledges is: ${pledges.length}`);
+    pledgesTarger.textContent = pledges.length;
+  } catch (error) {
+    console.error('Error fetching pledges:', error);
+    return 0;
+  }
+}
+
+
 async function handleImageUpload(file) {
   try {
     showLoading("Uploading image...");
@@ -421,7 +446,7 @@ async function handleImageUpload(file) {
                     ];
                     const randomImageUrl =
                       placeholderUrls[
-                        Math.floor(Math.random() * placeholderUrls.length)
+                      Math.floor(Math.random() * placeholderUrls.length)
                       ];
 
                     setTimeout(() => {
